@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Program.cs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6c95eb;}
+.s1 { color: #d0d0d0;}
+.s2 { color: #bdbdbd;}
+.s3 { color: #c9a26d;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Program.cs</font>
+</center></td></tr></table>
+<pre><span class="s0">using </span><span class="s1">Ex8</span><span class="s2">;</span>
+
+<span class="s0">class </span><span class="s1">Program</span>
+<span class="s2">{</span>
+    <span class="s0">static void </span><span class="s1">Main</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">static void </span><span class="s1">ExecutarAtaqueEmLote</span><span class="s2">(</span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">IAtacante</span><span class="s2">&gt; </span><span class="s1">personagens</span><span class="s2">)</span>
+        <span class="s2">{</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;--- Executando ataque em lote ---&quot;</span><span class="s2">);</span>
+            <span class="s0">foreach </span><span class="s2">(</span><span class="s1">var personagem </span><span class="s0">in </span><span class="s1">personagens</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">personagem</span><span class="s2">.</span><span class="s1">Atacar</span><span class="s2">();</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s0">static void </span><span class="s1">Main</span><span class="s2">()</span>
+        <span class="s2">{</span>
+            <span class="s1">var dragao </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Dragao</span><span class="s2">();</span>
+            <span class="s1">var mago </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Mago</span><span class="s2">();</span>
+            <span class="s1">var paladino </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Paladino</span><span class="s2">();</span>
+
+            
+            <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">IAtacante</span><span class="s2">&gt; </span><span class="s1">atacantes </span><span class="s2">= </span><span class="s0">new </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">IAtacante</span><span class="s2">&gt; { </span><span class="s1">dragao</span><span class="s2">, </span><span class="s1">mago</span><span class="s2">, </span><span class="s1">paladino </span><span class="s2">};</span>
+            <span class="s1">ExecutarAtaqueEmLote</span><span class="s2">(</span><span class="s1">atacantes</span><span class="s2">);</span>
+
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">();</span>
+
+            
+            <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">IVoador</span><span class="s2">&gt; </span><span class="s1">voadores </span><span class="s2">= </span><span class="s0">new </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">IVoador</span><span class="s2">&gt; { </span><span class="s1">dragao</span><span class="s2">, </span><span class="s1">paladino </span><span class="s2">};</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;--- Quem consegue voar ---&quot;</span><span class="s2">);</span>
+            <span class="s0">foreach </span><span class="s2">(</span><span class="s1">var v </span><span class="s0">in </span><span class="s1">voadores</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">v</span><span class="s2">.</span><span class="s1">Voar</span><span class="s2">();</span>
+            <span class="s2">}</span>
+
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">();</span>
+            
+            <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">ICurador</span><span class="s2">&gt; </span><span class="s1">curadores </span><span class="s2">= </span><span class="s0">new </span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">ICurador</span><span class="s2">&gt; { </span><span class="s1">mago</span><span class="s2">, </span><span class="s1">paladino </span><span class="s2">};</span>
+            <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s3">&quot;--- Quem consegue curar ---&quot;</span><span class="s2">);</span>
+            <span class="s0">foreach </span><span class="s2">(</span><span class="s1">var c </span><span class="s0">in </span><span class="s1">curadores</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">c</span><span class="s2">.</span><span class="s1">Curar</span><span class="s2">();</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
